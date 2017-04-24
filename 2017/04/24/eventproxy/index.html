@@ -5,19 +5,18 @@
   
   <title>eventproxy | 岁月成碑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="《使用 eventproxy 控制并发》目标建立一个 lesson4 项目，在其中编写代码。 代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的">
+  <meta name="description" content="使用 eventproxy 控制并发目标代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的同学留意一下这里&quot;,    &quot;href&quot;: &quot;http">
 <meta name="keywords" content="nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eventproxy">
 <meta property="og:url" content="http://tayshin.github.io/2017/04/24/eventproxy/index.html">
 <meta property="og:site_name" content="岁月成碑">
-<meta property="og:description" content="《使用 eventproxy 控制并发》目标建立一个 lesson4 项目，在其中编写代码。 代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的">
+<meta property="og:description" content="使用 eventproxy 控制并发目标代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的同学留意一下这里&quot;,    &quot;href&quot;: &quot;http">
 <meta property="og:image" content="https://raw.githubusercontent.com/alsotang/node-lessons/master/lesson4/1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alsotang/node-lessons/master/lesson4/2.png">
-<meta property="og:updated_time" content="2017-04-24T10:50:08.805Z">
+<meta property="og:updated_time" content="2017-04-24T11:14:36.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="eventproxy">
-<meta name="twitter:description" content="《使用 eventproxy 控制并发》目标建立一个 lesson4 项目，在其中编写代码。 代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的">
+<meta name="twitter:description" content="使用 eventproxy 控制并发目标代码的入口是 app.js，当调用 node app.js 时，它会输出 CNode(https://cnodejs.org/ ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。 输出示例： 123456789101112[  &amp;#123;    &quot;title&quot;: &quot;【公告】发招聘帖的同学留意一下这里&quot;,    &quot;href&quot;: &quot;http">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/alsotang/node-lessons/master/lesson4/1.png">
   
     <link rel="alternate" href="/atom.xml" title="岁月成碑" type="application/atom+xml">
@@ -60,9 +59,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tayshin.github.io"></form>
@@ -93,8 +92,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="《使用-eventproxy-控制并发》"><a href="#《使用-eventproxy-控制并发》" class="headerlink" title="《使用 eventproxy 控制并发》"></a>《使用 eventproxy 控制并发》</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>建立一个 lesson4 项目，在其中编写代码。</p>
-<p>代码的入口是 <code>app.js</code>，当调用 <code>node app.js</code> 时，它会输出 CNode(<a href="https://cnodejs.org/" target="_blank" rel="external">https://cnodejs.org/</a> ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。</p>
+        <h1 id="使用-eventproxy-控制并发"><a href="#使用-eventproxy-控制并发" class="headerlink" title="使用 eventproxy 控制并发"></a>使用 eventproxy 控制并发</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>代码的入口是 <code>app.js</code>，当调用 <code>node app.js</code> 时，它会输出 CNode(<a href="https://cnodejs.org/" target="_blank" rel="external">https://cnodejs.org/</a> ) 社区首页的所有主题的标题，链接和第一条评论，以 json 的格式。</p>
 <p>输出示例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"【公告】发招聘帖的同学留意一下这里"</span>,</div><div class="line">    <span class="string">"href"</span>: <span class="string">"http://cnodejs.org/topic/541ed2d05e28155f24676a12"</span>,</div><div class="line">    <span class="string">"comment1"</span>: <span class="string">"呵呵呵呵"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"发布一款 Sublime Text 下的 JavaScript 语法高亮插件"</span>,</div><div class="line">    <span class="string">"href"</span>: <span class="string">"http://cnodejs.org/topic/54207e2efffeb6de3d61f68f"</span>,</div><div class="line">    <span class="string">"comment1"</span>: <span class="string">"沙发！"</span></div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
 <h2 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h2><p>以上文目标为基础，输出 <code>comment1</code> 的作者，以及他在 cnode 社区的积分值。</p>
@@ -148,14 +146,11 @@
 <p>大家自行学习一下这个 API 吧：<a href="https://github.com/JacksonTian/eventproxy#%E9%87%8D%E5%A4%8D%E5%BC%82%E6%AD%A5%E5%8D%8F%E4%BD%9C" target="_blank" rel="external">https://github.com/JacksonTian/eventproxy#%E9%87%8D%E5%A4%8D%E5%BC%82%E6%AD%A5%E5%8D%8F%E4%BD%9C</a></p>
 <p>我代码就直接贴了哈。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 得到 topicUrls 之后</span></div><div class="line"></div><div class="line"><span class="comment">// 得到一个 eventproxy 的实例</span></div><div class="line"><span class="keyword">var</span> ep = <span class="keyword">new</span> eventproxy();</div><div class="line"></div><div class="line"><span class="comment">// 命令 ep 重复监听 topicUrls.length 次（在这里也就是 40 次） `topic_html` 事件再行动</span></div><div class="line">ep.after(<span class="string">'topic_html'</span>, topicUrls.length, <span class="function"><span class="keyword">function</span> (<span class="params">topics</span>) </span>&#123;</div><div class="line">  <span class="comment">// topics 是个数组，包含了 40 次 ep.emit('topic_html', pair) 中的那 40 个 pair</span></div><div class="line"></div><div class="line">  <span class="comment">// 开始行动</span></div><div class="line">  topics = topics.map(<span class="function"><span class="keyword">function</span> (<span class="params">topicPair</span>) </span>&#123;</div><div class="line">    <span class="comment">// 接下来都是 jquery 的用法了</span></div><div class="line">    <span class="keyword">var</span> topicUrl = topicPair[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> topicHtml = topicPair[<span class="number">1</span>];</div><div class="line">    <span class="keyword">var</span> $ = cheerio.load(topicHtml);</div><div class="line">    <span class="keyword">return</span> (&#123;</div><div class="line">      <span class="attr">title</span>: $(<span class="string">'.topic_full_title'</span>).text().trim(),</div><div class="line">      <span class="attr">href</span>: topicUrl,</div><div class="line">      <span class="attr">comment1</span>: $(<span class="string">'.reply_content'</span>).eq(<span class="number">0</span>).text().trim(),</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'final:'</span>);</div><div class="line">  <span class="built_in">console</span>.log(topics);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">topicUrls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">topicUrl</span>) </span>&#123;</div><div class="line">  superagent.get(topicUrl)</div><div class="line">    .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'fetch '</span> + topicUrl + <span class="string">' successful'</span>);</div><div class="line">      ep.emit(<span class="string">'topic_html'</span>, [topicUrl, res.text]);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>输出长这样：</p>
-<p><img src="https://raw.githubusercontent.com/alsotang/node-lessons/master/lesson4/2.png" alt=""></p>
-<p>完整的代码请查看 lesson4 目录下的 app.js 文件</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tayshin.github.io/2017/04/24/eventproxy/" data-id="cj1w04pv80000edwmi45vfo82" class="article-share-link">Partager</a>
+      <a data-url="http://tayshin.github.io/2017/04/24/eventproxy/" data-id="cj1w04pv80000edwmi45vfo82" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
@@ -164,20 +159,6 @@
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2017/04/24/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
   
 </article>
 
@@ -190,7 +171,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
     </div>
@@ -200,7 +181,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
       <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
     </div>
@@ -209,9 +190,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 
@@ -219,16 +200,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2017/04/24/eventproxy/">eventproxy</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/24/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -244,7 +221,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Tayshin<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
